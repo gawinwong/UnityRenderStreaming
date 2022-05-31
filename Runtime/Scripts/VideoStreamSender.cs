@@ -64,7 +64,10 @@ namespace Unity.RenderStreaming
             RTCRtpSendParameters parameters = sender.GetParameters();
             foreach (var encoding in parameters.encodings)
             {
-                if (bitrate != null) encoding.maxBitrate = bitrate;
+                if (bitrate != null) {
+                    encoding.maxBitrate = bitrate;
+                    encoding.minBitrate = bitrate / 2;
+                }
                 if (framerate != null) encoding.maxFramerate = framerate;
             }
 
