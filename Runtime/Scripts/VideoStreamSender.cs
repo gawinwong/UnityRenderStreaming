@@ -115,8 +115,8 @@ namespace Unity.RenderStreaming
     {
         static readonly float s_defaultFrameRate = 30;
 
-        static readonly uint s_defaultMinBitrate = 0;
-        static readonly uint s_defaultMaxBitrate = 1000;
+        static readonly uint s_defaultMinBitrate = 1000;
+        static readonly uint s_defaultMaxBitrate = 2000;
 
         static readonly int s_defaultDepth = 16;
 
@@ -148,7 +148,7 @@ namespace Unity.RenderStreaming
         [SerializeField, FrameRate]
         private float m_FrameRate = s_defaultFrameRate;
 
-        [SerializeField, Bitrate(0, 10000)]
+        [SerializeField, Bitrate(1000, 10000)]
         private Range m_Bitrate = new Range(s_defaultMinBitrate, s_defaultMaxBitrate);
 
         [SerializeField, ScaleResolution]
