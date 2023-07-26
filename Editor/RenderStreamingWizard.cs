@@ -162,20 +162,20 @@ namespace Unity.RenderStreaming.Editor
                             IsInputSettingsAssetsExists),
                         new Entry(Scope.BuildSettings, currentBuildTarget, IsSupportedBuildTarget, FixSupportedBuildTarget),
                         new Entry(Scope.BuildSettings, currentGraphicsApi, IsSupportedGraphics, FixSupportedGraphics),
-                        new Entry(Scope.BuildSettings, macCameraUsageDescription, IsMacCameraUsageCorrect, FixMacCameraUsage),
-                        new Entry(Scope.BuildSettings, macMicrophoneUsageDescription, IsMacMicrophoneUsageCorrect,
-                            FixMacMicrophoneUsage),
-                        new Entry(Scope.BuildSettings, iOSCameraUsageDescription, IsIOSCameraUsageCorrect, FixIOSCameraUsage),
-                        new Entry(Scope.BuildSettings, iOSMicrophoneUsageDescription, IsIOSMicrophoneUsageCorrect,
-                            FixIOSMicrophoneUsage),
-                        new Entry(Scope.BuildSettings, androidMinimumAPILevel, IsAndroidMinimumAPILevelCorrect,
-                            FixAndroidMinimumAPILevel),
-                        new Entry(Scope.BuildSettings, androidScriptBackend, IsAndroidScriptBackendCorrect,
-                            FixAndroidScriptBackend),
-                        new Entry(Scope.BuildSettings, androidTargetArchitecture, IsAndroidTargetArchitectureCorrect,
-                            FixAndroidTargetArchitecture),
-                        new Entry(Scope.BuildSettings, androidInternetAccess, IsAndroidInternetAccessCorrect,
-                            FixAndroidInternetAccess),
+                        // new Entry(Scope.BuildSettings, macCameraUsageDescription, IsMacCameraUsageCorrect, FixMacCameraUsage),
+                        // new Entry(Scope.BuildSettings, macMicrophoneUsageDescription, IsMacMicrophoneUsageCorrect,
+                        //     FixMacMicrophoneUsage),
+                        // new Entry(Scope.BuildSettings, iOSCameraUsageDescription, IsIOSCameraUsageCorrect, FixIOSCameraUsage),
+                        // new Entry(Scope.BuildSettings, iOSMicrophoneUsageDescription, IsIOSMicrophoneUsageCorrect,
+                        //     FixIOSMicrophoneUsage),
+                        // new Entry(Scope.BuildSettings, androidMinimumAPILevel, IsAndroidMinimumAPILevelCorrect,
+                        //     FixAndroidMinimumAPILevel),
+                        // new Entry(Scope.BuildSettings, androidScriptBackend, IsAndroidScriptBackendCorrect,
+                        //     FixAndroidScriptBackend),
+                        // new Entry(Scope.BuildSettings, androidTargetArchitecture, IsAndroidTargetArchitectureCorrect,
+                        //     FixAndroidTargetArchitecture),
+                        // new Entry(Scope.BuildSettings, androidInternetAccess, IsAndroidInternetAccessCorrect,
+                        //     FixAndroidInternetAccess),
                     };
                 return entries;
             }
@@ -289,10 +289,10 @@ namespace Unity.RenderStreaming.Editor
             }
         }
 
-        private static bool IsMacCameraUsageCorrect() =>
-            !string.IsNullOrEmpty(PlayerSettings.macOS.cameraUsageDescription);
+        // private static bool IsMacCameraUsageCorrect() =>
+        //     !string.IsNullOrEmpty(PlayerSettings.macOS.cameraUsageDescription);
 
-        private static void FixMacCameraUsage() => PlayerSettings.macOS.cameraUsageDescription = "For WebCamTexture";
+        // private static void FixMacCameraUsage() => PlayerSettings.macOS.cameraUsageDescription = "For WebCamTexture";
 
         private static bool IsMacMicrophoneUsageCorrect() =>
             !string.IsNullOrEmpty(PlayerSettings.iOS.microphoneUsageDescription);
