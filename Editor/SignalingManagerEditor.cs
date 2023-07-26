@@ -93,7 +93,9 @@ namespace Unity.RenderStreaming.Editor
                 return field;
             var availableObjects = paths.Select(path => AssetDatabase.LoadAssetAtPath<SignalingSettingsObject>(path)).ToArray();
             var defaultIndex = ArrayHelpers.IndexOf(availableObjects, asset);
-            field.choices = availableObjects.ToList();
+            var prop = field.GetType().GetField("m_Choices", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            prop.SetValue(field, availableObjects.ToList());
+            // field.choices = availableObjects.ToList();
             field.index = defaultIndex < 0 ? 0 : defaultIndex;
             return field;
         }
@@ -166,7 +168,9 @@ namespace Unity.RenderStreaming.Editor
                 e.target = signalingSettingsPopupField;
                 root.SendEvent(e);
             }
-            signalingSettingsPopupField.choices = availableObjects.ToList();
+            var prop = signalingSettingsPopupField.GetType().GetField("m_Choices", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            prop.SetValue(signalingSettingsPopupField, availableObjects.ToList());
+            // signalingSettingsPopupField.choices = availableObjects.ToList();
             signalingSettingsPopupField.index = defaultIndex;
 
         }

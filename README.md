@@ -25,10 +25,13 @@
 ## 5. 修改适配2021.2.9以前的版本
 ```cs
 # Editor/SignalingManagerEditor.cs
-var prop = field.GetType().GetField("m_Choices", System.Reflection.BindingFlags.NonPublic
-                                                    | System.Reflection.BindingFlags.Instance);
+var prop = field.GetType().GetField("m_Choices", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 prop.SetValue(field, availableObjects.ToList());
 // field.choices = availableObjects.ToList();
+
+var prop = signalingSettingsPopupField.GetType().GetField("m_Choices", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+prop.SetValue(signalingSettingsPopupField, availableObjects.ToList());
+// signalingSettingsPopupField.choices = availableObjects.ToList();
 ```
 ```cs
 # Editor/RenderStreamingWizard.cs
@@ -46,4 +49,10 @@ prop.SetValue(field, availableObjects.ToList());
 //     FixAndroidTargetArchitecture),
 // new Entry(Scope.BuildSettings, androidInternetAccess, IsAndroidInternetAccessCorrect,
 //     FixAndroidInternetAccess),
+
+
+// private static bool IsMacCameraUsageCorrect() =>
+//     !string.IsNullOrEmpty(PlayerSettings.macOS.cameraUsageDescription);
+
+// private static void FixMacCameraUsage() => PlayerSettings.macOS.cameraUsageDescription = "For WebCamTexture";
 ```
