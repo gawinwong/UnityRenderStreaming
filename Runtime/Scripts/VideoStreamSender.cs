@@ -114,8 +114,8 @@ namespace Unity.RenderStreaming
     public class VideoStreamSender : StreamSenderBase
     {
         static readonly float s_defaultFrameRate = 30;
-        static readonly uint s_defaultMinBitrate = 0;
-        static readonly uint s_defaultMaxBitrate = 1000;
+        static readonly uint s_defaultMinBitrate = 1000;
+        static readonly uint s_defaultMaxBitrate = 3000;
         static readonly int s_defaultDepth = 16;
 
         internal const string SourcePropertyName = nameof(m_Source);
