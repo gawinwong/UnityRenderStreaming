@@ -41,11 +41,21 @@ namespace Unity.RenderStreaming
             {
                 case Mouse mouse:
                     MouseState* mouseState = (MouseState*)data->state;
+                    if(double.IsNaN(mouseState->position.x) || double.IsNaN(mouseState->position.y) || mouseState->position.x < 0 || mouseState->position.y < 0)
+                    {
+                        mouseState->position.x = 0;
+                        mouseState->position.y = 0;
+                    }
                     mouseState->position = Map(mouseState->position, inputRegion, outputRegion);
                     break;
                 case Touchscreen touch:
                     // todo(kazuki): multi touch is not supported yet.
                     TouchState* touchState = (TouchState*)data->state;
+                    if(double.IsNaN(touchState->position.x) || double.IsNaN(touchState->position.y) || touchState->position.x < 0 || touchState->position.y < 0)
+                    {
+                        touchState->position.x = 0;
+                        touchState->position.y = 0;
+                    }
                     touchState->position = Map(touchState->position, inputRegion, outputRegion);
                     break;
             }
